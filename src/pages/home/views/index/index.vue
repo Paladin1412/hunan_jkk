@@ -1,15 +1,9 @@
 <template>
-    <div
-        class="container"
-        :class="isGuideShow ? 'container-guide' : ''"
-        @click="containerClick"
-    >
+    <div class="container" :class="isGuideShow ? 'container-guide' : ''" @click="containerClick">
         <header>
             <img :src="BACK_PIC" alt="" />
             <div class="header-tips">
-                <div class="header-num">
-                    {{ visitNum || '--' }}<span class="num-unit">人</span>
-                </div>
+                <div class="header-num">{{ visitNum || '--' }}<span class="num-unit">人</span></div>
                 <div>正在使用湖南省电子健康卡，就医通行一码通</div>
             </div>
         </header>
@@ -18,53 +12,19 @@
             <div class="relation-top">
                 <div class="relation-list-container">
                     <div class="relation-list" ref="relationListRef">
-                        <div
-                            class="relation-list-item"
-                            v-for="(item, index) in cards"
-                            :key="index"
-                            :class="
-                                activeIndex === index ? 'relation-active' : ''
-                            "
-                        >
-                            <img
-                                v-if="index !== cards.length"
-                                :src="getUserIcon(item.age, item.gender)"
-                                alt=""
-                                @click="setCardIndex(item, index)"
-                            />
+                        <div class="relation-list-item" v-for="(item, index) in cards" :key="index" :class="activeIndex === index ? 'relation-active' : ''">
+                            <img v-if="index !== cards.length" :src="getUserIcon(item.age, item.gender)" alt="" @click="setCardIndex(item, index)" />
 
-                            <span
-                                v-if="index !== cards.length"
-                                class="relaiont-tips"
-                                >{{
-                                    item.isManager
-                                        ? '管理者'
-                                        : RELATION_OBJ[item.relation || ''] ||
-                                          item.name
-                                }}</span
-                            >
+                            <span v-if="index !== cards.length" class="relaiont-tips">{{ item.isManager ? '管理者' : RELATION_OBJ[item.relation || ''] || item.name }}</span>
                         </div>
                     </div>
 
-                    <div
-                        class="relation-add-item"
-                        :class="
-                            activeIndex === cards.length
-                                ? 'relation-active'
-                                : ''
-                        "
-                    >
+                    <div class="relation-add-item" :class="activeIndex === cards.length ? 'relation-active' : ''">
                         <div class="relation-add" @click="addCard">
                             +
                         </div>
 
-                        <img
-                            v-if="isGuideShow"
-                            class="add-guide"
-                            :class="cards.length === 0 ? 'no-card-add-img' : ''"
-                            :src="ADD_GUIDE"
-                            alt=""
-                        />
+                        <img v-if="isGuideShow" class="add-guide" :class="cards.length === 0 ? 'no-card-add-img' : ''" :src="ADD_GUIDE" alt="" />
                     </div>
                 </div>
 
@@ -76,51 +36,29 @@
                         </span>
                     </div>
 
-                    <img
-                        src="https://static.wecity.qq.com/lego_next_resources/right-arrow-f8153a713e1de9c513e36da456ea5626.png"
-                        alt=""
-                    />
+                    <img src="https://static.wecity.qq.com/lego_next_resources/right-arrow-f8153a713e1de9c513e36da456ea5626.png" alt="" />
                 </div>
             </div>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div
-                        class="swiper-slide"
-                        v-for="(item, index) in cards"
-                        :key="index"
-                    >
+                    <div class="swiper-slide" v-for="(item, index) in cards" :key="index">
                         <div class="swiper-info" @click="cardClick(item)">
                             <img class="card-back" :src="CARD_HUNAN" alt="" />
                             <div class="card-name">{{ item.name }}</div>
                             <div class="card-id">{{ item.idNumber }}</div>
                             <div class="qrcode" ref="qrcodeRef">
                                 <img class="qrcode-logo" :src="LOGO" alt="" />
-                                <img
-                                    class="qrcode-img"
-                                    :src="item.qrcodeImg"
-                                    alt=""
-                                />
+                                <img class="qrcode-img" :src="item.qrcodeImg" alt="" />
                                 <!-- <canvas :id="`qrcode_${index}`"></canvas> -->
                             </div>
                         </div>
                     </div>
 
                     <div class="swiper-slide">
-                        <div
-                            class="swiper-info add-card-swiper"
-                            @click="addCard"
-                        >
-                            <img
-                                class="card-back card-add"
-                                :src="CARD_BACK"
-                                alt=""
-                            />
+                        <div class="swiper-info add-card-swiper" @click="addCard">
+                            <img class="card-back card-add" :src="CARD_BACK" alt="" />
                             <div class="add-card-container">
-                                <img
-                                    class="add-card-icon"
-                                    :src="ADD_ICON"
-                                    alt=""
-                                />
+                                <img class="add-card-icon" :src="ADD_ICON" alt="" />
                                 <div class="add-card-tips">
                                     点“+”申领电子健康卡
                                 </div>
@@ -133,20 +71,9 @@
         </div>
 
         <div class="main-container">
-            <div
-                v-for="(moduleItem, moduleIndex) in moduleConfig"
-                :key="moduleIndex"
-            >
-                <div
-                    v-if="moduleItem.type === 'iconTop'"
-                    class="recommond-menu"
-                >
-                    <div
-                        class="recommond-menu-item"
-                        v-for="(item, index) in moduleItem.data"
-                        :key="index"
-                        @click="commonClick($event, item, moduleItem.backColor)"
-                    >
+            <div v-for="(moduleItem, moduleIndex) in moduleConfig" :key="moduleIndex">
+                <div v-if="moduleItem.type === 'iconTop'" class="recommond-menu">
+                    <div class="recommond-menu-item" v-for="(item, index) in moduleItem.data" :key="index" @click="commonClick($event, item, moduleItem.backColor)">
                         <img :src="item.icon" alt="" />
                         <div>{{ item.label }}</div>
                     </div>
@@ -159,18 +86,11 @@
                             class="general-menu-item"
                             v-for="(item, index) in moduleItem.data"
                             :key="index"
-                            :class="
-                                moduleItem.type === 'withoutIcon'
-                                    ? 'kepu-menu-item'
-                                    : ''
-                            "
+                            :class="moduleItem.type === 'withoutIcon' ? 'kepu-menu-item' : ''"
                             :style="{
-                                background:
-                                    moduleItem.backColor || 'transparent',
+                                background: moduleItem.backColor || 'transparent',
                             }"
-                            @click="
-                                commonClick($event, item, moduleItem.backColor)
-                            "
+                            @click="commonClick($event, item, moduleItem.backColor)"
                         >
                             <img v-if="item.icon" :src="item.icon" alt="" />
                             <div class="general-menu-info">
@@ -222,23 +142,17 @@ import {
     TECENT_URL,
     // APP_ID,
 } from '@/utils/globalConst'
+import { CARD_LIST_MOCK } from '@/mock/cardData'
 
 const R = require('ramda')
 
-const BACK_PIC =
-    'https://static.wecity.qq.com/lego_next_resources/changsha-back-f82d630b60662455276d7fb1fe610274.png'
-const CARD_BACK =
-    'https://static.wecity.qq.com/lego_next_resources/card-back-f3a5b9722293f01244e10da183ba20cb.png'
-const CARD_HUNAN =
-    'https://static.wecity.qq.com/lego_next_resources/swiper-hunan-5ab0b1f0d96196e60937b6cd436aa738.png'
-const ADD_ICON =
-    'https://yiliao-1254237151.cos.ap-shanghai.myqcloud.com/wxa/cardNew/add-icon.png'
-const LOGO =
-    'https://static.wecity.qq.com/lego_next_resources/logo-b18dcf7bf55c412ec04989061d0512ad.png'
-const MANAGE_GUIDE =
-    'https://static.wecity.qq.com/lego_next_resources/manager-guide-3a2829686415003d16fd60853ddfdb74.png'
-const ADD_GUIDE =
-    'https://static.wecity.qq.com/lego_next_resources/add-guide-048f331cfd8446fa73c3d39341bafef1.png'
+const BACK_PIC = 'https://static.wecity.qq.com/lego_next_resources/changsha-back-f82d630b60662455276d7fb1fe610274.png'
+const CARD_BACK = 'https://static.wecity.qq.com/lego_next_resources/card-back-f3a5b9722293f01244e10da183ba20cb.png'
+const CARD_HUNAN = 'https://static.wecity.qq.com/lego_next_resources/swiper-hunan-5ab0b1f0d96196e60937b6cd436aa738.png'
+const ADD_ICON = 'https://yiliao-1254237151.cos.ap-shanghai.myqcloud.com/wxa/cardNew/add-icon.png'
+const LOGO = 'https://static.wecity.qq.com/lego_next_resources/logo-b18dcf7bf55c412ec04989061d0512ad.png'
+const MANAGE_GUIDE = 'https://static.wecity.qq.com/lego_next_resources/manager-guide-3a2829686415003d16fd60853ddfdb74.png'
+const ADD_GUIDE = 'https://static.wecity.qq.com/lego_next_resources/add-guide-048f331cfd8446fa73c3d39341bafef1.png'
 
 const COLOR = ['#000', '#256A0A', '#F39119', '#E02020']
 
@@ -281,14 +195,9 @@ export default {
     computed: {},
     watch: {},
     async beforeCreate() {
-        const pathName =
-            process.env.NODE_ENV === 'production'
-                ? `${location.pathname || ''}`
-                : ''
+        const pathName = process.env.NODE_ENV === 'production' ? `${location.pathname || ''}` : ''
 
-        const { status, data } = await this.$axios.get(
-            `${pathName}moduleConfig.json`
-        )
+        const { status, data } = await this.$axios.get(`${pathName}moduleConfig.json`)
 
         console.log('moduleConfig', status, data)
         if (status === 200 && data) {
@@ -311,6 +220,10 @@ export default {
         // this.isInitFinished = true
 
         // if (!this.isInitFinished) return
+        if (process.env.NODE_ENV !== 'production') {
+            this.cards = CARD_LIST_MOCK
+        }
+
         this.initPage()
     },
     destroyed() {},
@@ -318,11 +231,7 @@ export default {
         getUserIcon,
         async initPage() {
             this.initSwiper()
-            if (
-                process.env.NODE_ENV === 'production' &&
-                !(await this.initCardList())
-            )
-                return
+            if (process.env.NODE_ENV === 'production' && !(await this.initCardList())) return
 
             this.initQrcode()
             this.getNum()
@@ -356,15 +265,10 @@ export default {
         },
         async getNum() {
             try {
-                const { errno, data } = await this.$axios.jsonp(
-                    `https://jkkyljl.hnhfpc.gov.cn/httpapi/services.ashx?ACTION=rysuzi`
-                )
+                const { errno, data } = await this.$axios.jsonp(`https://jkkyljl.hnhfpc.gov.cn/httpapi/services.ashx?ACTION=rysuzi`)
 
                 if (errno === 0 && data && data.userCount) {
-                    this.visitNum =
-                        `${(data.userCount || '').toFixed(2)}`
-                            .replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,')
-                            .split('.')[0] || ''
+                    this.visitNum = `${(data.userCount || '').toFixed(2)}`.replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,').split('.')[0] || ''
 
                     console.log('getNum success: ', data)
                 }
@@ -382,18 +286,13 @@ export default {
                 return false
             }
 
-            const payload = decodeURIComponent(
-                escape(window.atob(token.split('.')[1]))
-            )
+            const payload = decodeURIComponent(escape(window.atob(token.split('.')[1])))
             const openId = JSON.parse(payload).openid
 
             console.log('openId', openId)
 
             try {
-                const res =
-                    (await this.$axios.get(
-                        `${BASE_URL}/jkk/Handler.ashx?action=list&Openid=${openId}`
-                    )) || {}
+                const res = (await this.$axios.get(`${BASE_URL}/jkk/Handler.ashx?action=list&Openid=${openId}`)) || {}
 
                 if (res.status === 200 && res.data.errno === 0) {
                     this.cards = res.data.data || []
@@ -435,9 +334,7 @@ export default {
                         localStorage.cardIndex = this.activeIndex
 
                         if (this.activeIndex >= 4) {
-                            self.$refs.relationListRef.scrollLeft =
-                                (self.$refs.relationListRef.clientWidth / 7) *
-                                this.activeIndex
+                            self.$refs.relationListRef.scrollLeft = (self.$refs.relationListRef.clientWidth / 7) * this.activeIndex
                         } else {
                             self.$refs.relationListRef.scrollLeft = 0
                         }
@@ -466,23 +363,18 @@ export default {
                 for (let index = 0; index < len; index++) {
                     const item = this.cards[index]
                     try {
-                        const qrcodeImg = await QRCode.toDataURL(
-                            item.qrCodeText,
-                            {
-                                errorCorrectionLevel: 'M',
-                                color: {
-                                    dark: COLOR[+item.colour] || COLOR[0],
-                                    light: '#fff',
-                                },
-                            }
-                        )
+                        const qrcodeImg = await QRCode.toDataURL(item.qrCodeText, {
+                            errorCorrectionLevel: 'M',
+                            color: {
+                                dark: COLOR[+item.colour] || COLOR[0],
+                                light: '#fff',
+                            },
+                        })
 
                         cardsTemp.push({
                             ...item,
                             qrcodeImg,
-                            age: item.idCard
-                                ? dayjs().diff(item.idCard.substr(6, 8), 'year')
-                                : '--',
+                            age: item.idCard ? dayjs().diff(item.idCard.substr(6, 8), 'year') : '--',
                         })
                     } catch (error) {
                         console.log('QRCode error: ', error)
@@ -510,8 +402,7 @@ export default {
             //     this.$weui.topTips('微信绑卡数量已达上限，请先解绑其他健康卡')
             //     return
             // }
-            location.href =
-                'https://jkkzc.hnhfpc.gov.cn/gzc/Wx_jmjkk/regist.html'
+            location.href = 'https://jkkzc.hnhfpc.gov.cn/gzc/Wx_jmjkk/regist.html'
         },
 
         dealBeforeClick(e, item, color) {
@@ -527,16 +418,9 @@ export default {
                 }, 100)
             }
 
-            this.clickStat(
-                { scene: item.scene },
-                this.cards[this.activeIndex] || {},
-                '1'
-            )
+            this.clickStat({ scene: item.scene }, this.cards[this.activeIndex] || {}, '1')
 
-            if (
-                this.cards.length === 0 ||
-                this.activeIndex === this.cards.length
-            ) {
+            if (this.cards.length === 0 || this.activeIndex === this.cards.length) {
                 this.addCard()
                 return false
             }
@@ -553,10 +437,7 @@ export default {
                 return false
             }
 
-            this.clickStat(
-                { scene: item.scene },
-                this.cards[this.activeIndex] || {}
-            )
+            this.clickStat({ scene: item.scene }, this.cards[this.activeIndex] || {})
 
             return true
         },
