@@ -1,0 +1,4 @@
+[submodule "wap"]
+	path = wap
+	url = http://git.code.oa.com/ww-static/wap.git
+    branch = test-health-card

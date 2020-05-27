@@ -1,0 +1,18 @@
+.hc-badge {
+    height: 41px;
+    border-radius: 30px;
+    padding: 0 20px;
+    line-height: 41px;
+    text-align: center;
+    background-color: $col-badge__default;
+    font-size: 28px;
+    color: $col-2b;
+    &.active {
+        color: #fff;
+        background-color: $col-888;
+    }
+    &.hc-badge__primary {
+        background-color: #E3E8F5;
+        color: #2054D1;
+    }
+}

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <meta name="aformat-detection" content="telephone=no,email=no" />
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+        />
+        <meta name="description" content="湖南省居民电子健康卡" />
+        <link id="weui-css" rel="stylesheet" />
+        <script>
+            (function() {
+                var ua = navigator.userAgent
+                console.log('userAgent: ',  ua);
+                if (!ua.includes('Android') && !ua.includes('Linux')) return;
+
+                try {
+                    console.log('WeixinJSBridge Obj: ', typeof WeixinJSBridge);
+                
+                    if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+                        handleFontSize();
+                    } else {
+                        document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
+                    }
+                    function handleFontSize() {
+                        try {
+                            // 设置网页字体为默认大小
+                            WeixinJSBridge.invoke("setFontSizeCallback&", { "fontSize" : 0 });
+                            // 重写设置网页字体大小的事件
+                            WeixinJSBridge.on("menu:setfont", function() {
+                                WeixinJSBridge.invoke("setFontSizeCallback", { "fontSize" : 0 });
+                            });
+                        } catch (error) {
+                            console.log('WeixinJSBridge error: ', error);
+                        }
+                    }
+                } catch (error) {
+                    console.log('WeixinJSBridge error_1: ', error);
+                }
+            })();
+        </script>
+        <script>
+            var downloadSourceStartTime = Date.now();
+            function onScriptLoad(obj) {
+                if (!obj.src) return;
+                console.log(
+                    "资源加载耗时:",
+                    obj.src,
+                    Date.now() - downloadSourceStartTime + "ms"
+                );
+            }
+        </script>
+        <style type="text/css">
+            html {
+                font-size: 3.733vmin;
+                line-height: 1.45;
+                height: 100%;
+            }
+            body {
+                height: 100%;
+            }
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            .weui-toast {
+                position: fixed;
+                z-index: 5000;
+                width: 32vw;
+                min-height: 32vw;
+                top: 180px;
+                left: 50%;
+                margin-left: -16vw;
+                background: rgba(17, 17, 17, 0.7);
+                text-align: center;
+                border-radius: 5px;
+                color: #ffffff;
+            }
+
+            .weui-mask_transparent {
+                position: fixed;
+                z-index: 1000;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+            }
+
+            .weui-icon_toast.weui-loading {
+                margin: 30px 0 0;
+                width: 38px;
+                height: 38px;
+                vertical-align: baseline;
+            }
+
+            .weui-loading {
+                width: 20px;
+                height: 20px;
+                display: inline-block;
+                vertical-align: middle;
+                -webkit-animation: weuiLoading 1s steps(12, end) infinite;
+                animation: weuiLoading 1s steps(12, end) infinite;
+                background: transparent
+                    url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgxMDB2MTAwSDB6Ii8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTlFOUU5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTMwKSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iIzk4OTY5NyIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgzMCAxMDUuOTggNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjOUI5OTlBIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDYwIDc1Ljk4IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0EzQTFBMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCA2NSA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNBQkE5QUEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwIDU4LjY2IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0IyQjJCMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgxNTAgNTQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjQkFCOEI5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA1MCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDMkMwQzEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE1MCA0NS45OCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDQkNCQ0IiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEyMCA0MS4zNCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNEMkQyRDIiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDM1IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0RBREFEQSIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgtNjAgMjQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTJFMkUyIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCAtNS45OCA2NSkiLz48L3N2Zz4=)
+                    no-repeat;
+                background-size: 100%;
+            }
+
+            .weui-dialog .weui-dialog__ft {
+                display: flex;
+                text-align: center;
+            }
+
+            .weui-toast__content {
+                margin: 0 0 15px;
+            }
+
+            @-webkit-keyframes weuiLoading {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    -webkit-transform: rotate(1turn);
+                    transform: rotate(1turn);
+                }
+            }
+
+            @keyframes weuiLoading {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    -webkit-transform: rotate(1turn);
+                    transform: rotate(1turn);
+                }
+            }
+        </style>
+
+        <title>加载中...</title>
+    </head>
+    <body ontouchstart="">
+        <noscript>
+            <strong
+                >We're sorry but healthcard_report_v2 doesn't work properly
+                without JavaScript enabled. Please enable it to
+                continue.</strong
+            >
+        </noscript>
+        <div id="app"></div>
+        <!-- built files will be auto injected -->
+        <script>
+            document.querySelector("#weui-css").href =
+                "//res.wx.qq.com/open/libs/weui/1.1.3/weui.min.css"; // weui要放到顶部
+            (function toast(waitTime) {
+                /* 加载toast */
+                var loadingToast = document.createElement("div");
+                loadingToast.id = "loadingToast";
+                loadingToast.style = "opacity: 1";
+                loadingToast.innerHTML =
+                    '<div class="weui-mask_transparent"></div><div class="weui-toast"><i class="weui-loading weui-icon_toast"></i><p class="weui-toast__content">加载中</p></div>';
+                window.loadingToast = {
+                    instance: loadingToast,
+                    visibility: true,
+                    close: function() {
+                        document.body.removeChild(loadingToast);
+                        window.removeEventListener("error", errorHandle);
+                        window.loadingToast.visibility = false;
+                    },
+                    changeText: function(text) {
+                        loadingToast.innerHTML =
+                            '<div class="weui-mask_transparent"></div><div class="weui-toast"><i class="weui-loading weui-icon_toast"></i><p class="weui-toast__content">' +
+                            text +
+                            "</p></div>";
+                    }
+                };
+                setTimeout(function() {
+                    window.loadingToast.changeText("网络环境差<br>请耐心等待");
+                }, waitTime);
+                document.body.appendChild(loadingToast);
+
+                /* 错误处理 */
+                var showErrorPage = function(title, msg) {
+                    window.stop(); // 制止之后的资源加载
+                    document.open(); // 打开新的文档
+                    document.write(
+                        '<html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>' +
+                            title +
+                            '</title><style>* {margin: 0;padding: 0;-webkit-tap-highlight-color: rgba(0,0,0,0);}.msg-section {width: calc(100% - 8vmin);height: 100vh;margin: 0 auto;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-orient: vertical;-webkit-box-direction: normal;-ms-flex-direction: column;flex-direction: column;-webkit-box-align: center;-ms-flex-align: center;align-items: center;content: "viewport-units-buggyfill; width: calc(100% - 8vmin); height: 100vh";}.msg-title {margin-top: 50%;font-size: 4.8vmin;padding-top: 6.667vmin;content: "viewport-units-buggyfill; font-size: 4.8vmin; padding-top: 6.667vmin";}</style></head><body ontouchstart="" class="" style="background-color: rgb(255, 255, 255);"><div id="app"><section class="msg-section"><h1 class="msg-title">' +
+                            msg +
+                            "<\/h1><\/section><\/div><\/body><\/html>"
+                    );
+                };
+                var errorHandle = function(e) {
+                    // showErrorPage('资源加载失败', e.message + '<br>' + e.stack)
+                    console.error(e);
+                    window.removeEventListener("error", errorHandle);
+                };
+                window.addEventListener("error", errorHandle);
+            })(1000 * 5);
+        </script>
+
+        <% if (process.env.NODE_ENV === 'production') { %>
+        <script>
+            (function() {
+                var src = "//cdn.jsdelivr.net/npm/eruda";
+                if (
+                    !/eruda=true/.test(window.location) &&
+                    localStorage.getItem("active-eruda") != "true"
+                )
+                    return;
+                document.write(
+                    "<scr" +
+                        'ipt onload="onScriptLoad(this)" src="' +
+                        src +
+                        '"></scr' +
+                        "ipt>"
+                );
+                document.write("<scr" + "ipt>eruda.init();</scr" + "ipt>");
+            })();
+        </script>
+        <% } else { %>
+        <script
+            onload="onScriptLoad(this)"
+            src="//cdn.jsdelivr.net/npm/eruda"
+        ></script>
+        <script>
+            eruda.init();
+        </script>
+        <% } %>
+
+        <!-- <script
+            onload="onScriptLoad(this)"
+            src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"
+        ></script> -->
+        <script
+            onload="onScriptLoad(this)"
+            src="//res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"
+        ></script>
+        <script
+            onload="onScriptLoad(this)"
+            src="//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"
+        ></script>
+    </body>
+</html>
