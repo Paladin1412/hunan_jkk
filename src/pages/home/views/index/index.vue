@@ -129,7 +129,20 @@ import relationToast from '../../components/relationToast'
 import dayjs from 'dayjs'
 import Swiper from 'swiper'
 import QRCode from 'qrcode'
-import { getUserIcon, RELATION_OBJ, KEPU_MENU, CUSTOMER_MENU, RECOMOND_MENU, HEALTH_TOOLS, YLJL_URL, BASE_URL, HOSPITAL_ID, TECENT_URL, APP_ID } from '@/utils/globalConst'
+import {
+    getUserIcon,
+    TH_OPEN_URL,
+    RELATION_OBJ,
+    KEPU_MENU,
+    CUSTOMER_MENU,
+    RECOMOND_MENU,
+    HEALTH_TOOLS,
+    YLJL_URL,
+    BASE_URL,
+    HOSPITAL_ID,
+    TECENT_URL,
+    APP_ID,
+} from '@/utils/globalConst'
 import { CARD_LIST_MOCK } from '@/mock/cardData'
 
 const R = require('ramda')
@@ -195,6 +208,10 @@ export default {
         if (!wechatCode) {
             location.href = `https://health.tengmed.com/open/getUserCode?appId=${APP_ID}&hospitalId=${HOSPITAL_ID}&redirect_uri=${encodeURIComponent(location.href)}`
             return
+        }
+
+        if (!localStorage.wechatCode) {
+            this.$axios.post(`${TH_OPEN_URL}/queryFamilyRelationByWechatCode`, { wechatCode })
         }
         localStorage.wechatCode = wechatCode
 

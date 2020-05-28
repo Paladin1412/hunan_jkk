@@ -48,6 +48,7 @@ export const TECENT_API_URL = 'https://health.tengmed.com'
 export const APP_ID = 'wx5c5ee20cde3b70e7'
 export const HOSPITAL_ID = '30069'
 export const CITY_CODE = '430100'
+export const TH_OPEN_URL = 'https://p-healthopen.tengmed.com/rest/auth/HealthCard/HealthOpenPlatform/ISVOpenObj'
 
 export const RECOMOND_MENU = [
     {
