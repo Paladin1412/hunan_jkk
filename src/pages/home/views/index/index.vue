@@ -129,19 +129,7 @@ import relationToast from '../../components/relationToast'
 import dayjs from 'dayjs'
 import Swiper from 'swiper'
 import QRCode from 'qrcode'
-import {
-    getUserIcon,
-    RELATION_OBJ,
-    KEPU_MENU,
-    CUSTOMER_MENU,
-    RECOMOND_MENU,
-    HEALTH_TOOLS,
-    YLJL_URL,
-    BASE_URL,
-    HOSPITAL_ID,
-    TECENT_URL,
-    // APP_ID,
-} from '@/utils/globalConst'
+import { getUserIcon, RELATION_OBJ, KEPU_MENU, CUSTOMER_MENU, RECOMOND_MENU, HEALTH_TOOLS, YLJL_URL, BASE_URL, HOSPITAL_ID, TECENT_URL, APP_ID } from '@/utils/globalConst'
 import { CARD_LIST_MOCK } from '@/mock/cardData'
 
 const R = require('ramda')
@@ -172,9 +160,6 @@ export default {
             ADD_GUIDE,
             LOGO,
             RELATION_OBJ,
-
-            // isInitFinished: false,
-            // wechatCode: '',
             isGuideShow,
             visitNum: '',
 
@@ -205,21 +190,14 @@ export default {
         }
     },
     async mounted() {
-        // const { wechatCode } = this.$route.query
+        const wechatCode = this.$route.query.wechatCode || localStorage.wechatCode
 
-        // console.log('wechatCode', wechatCode)
+        if (!wechatCode) {
+            location.href = `https://health.tengmed.com/open/getUserCode?appId=${APP_ID}&hospitalId=${HOSPITAL_ID}&redirect_uri=${encodeURIComponent(location.href)}`
+            return
+        }
+        localStorage.wechatCode = wechatCode
 
-        // if (!wechatCode) {
-        //     location.href = `https://health.tengmed.com/open/getUserCode?appId=${APP_ID}&hospitalId=${HOSPITAL_ID}&redirect_uri=${encodeURIComponent(
-        //         location.href
-        //     )}`
-        //     return
-        // }
-
-        // this.wechatCode = wechatCode
-        // this.isInitFinished = true
-
-        // if (!this.isInitFinished) return
         if (process.env.NODE_ENV !== 'production') {
             this.cards = CARD_LIST_MOCK
         }

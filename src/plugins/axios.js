@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use strict'
 
 import Vue from 'vue'
@@ -31,7 +32,7 @@ _axios.interceptors.request.use(
 
         // Do something with request error
         return Promise.reject(error)
-    }
+    },
 )
 
 // Add a response interceptor
@@ -41,7 +42,7 @@ _axios.interceptors.response.use(
     },
     function(error) {
         return Promise.reject(error)
-    }
+    },
 )
 
 Plugin.install = function(Vue) {

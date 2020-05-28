@@ -20,9 +20,7 @@ export function maskCode(str = '') {
     } else {
         num = 4
     }
-    maskCode = `${str.substr(0, num)}${str
-        .substr(num, length - 2 * num)
-        .replace(/./g, '*')}${str.substr(length - num, num)}`
+    maskCode = `${str.substr(0, num)}${str.substr(num, length - 2 * num).replace(/./g, '*')}${str.substr(length - num, num)}`
 
     if (length === 2) {
         maskCode = str[0] + '*'
