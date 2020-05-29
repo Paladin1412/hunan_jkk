@@ -351,8 +351,6 @@ export default {
                 // },
                 on: {
                     slideChange: function slideChange() {
-                        console.log('card slide change: ', this.activeIndex)
-
                         if (this.activeIndex === self.activeIndex) return
                         self.activeIndex = this.activeIndex || 0
                         localStorage.cardIndex = this.activeIndex
@@ -395,24 +393,27 @@ export default {
                             },
                         })
 
+                        const idCard = item.idCard && item.idCard.length === 18
+
                         cardsTemp.push({
                             ...item,
                             qrcodeImg,
-                            age: item.idCard ? dayjs().diff(item.idCard.substr(6, 8), 'year') : '--',
+                            age: idCard ? dayjs().diff(item.idCard.substr(6, 8), 'year') : '--',
+                            gender: idCard ? (+item.idCard.substr(-2, 1) % 2 ? '男' : '女') : '',
                         })
                     } catch (error) {
                         console.log('QRCode error: ', error)
                         cardsTemp.push(item)
                     }
                 }
-                this.cards = R.sortBy(R.prop('relation'))(cardsTemp)
+                this.cards = cardsTemp
+
+                console.log('this.cards: ', this.cards)
 
                 this.initSwiperIndex()
             })
         },
         setCardIndex(item, index) {
-            console.log('setCardIndex: ', index)
-
             this.swiper.slideTo(index, 800, false)
             this.activeIndex = index
         },
@@ -454,14 +455,14 @@ export default {
                 return false
             }
 
-            const card = this.cards[this.activeIndex] || {}
-            if (+card.rpc !== 1 && +item.isrpc == 1) {
-                this.$weui.toast('未完成人脸识别，请完成人脸注册')
-                location.href = `${BASE_URL}/jkk/wx_rlrz.html?name=${card.name}&idNumber=${card.idCard}`
-                return false
-            }
+            // const card = this.cards[this.activeIndex] || {}
+            // if (+card.rpc !== 1 && +item.isrpc == 1) {
+            //     this.$weui.toast('未完成人脸识别，请完成人脸注册')
+            //     location.href = `${BASE_URL}/jkk/wx_rlrz.html?name=${card.name}&idNumber=${card.idCard}`
+            //     return false
+            // }
 
-            this.clickStat({ scene: item.scene }, this.cards[this.activeIndex] || {})
+            // this.clickStat({ scene: item.scene }, this.cards[this.activeIndex] || {})
 
             return true
         },
