@@ -26,9 +26,7 @@ console.log(process.env.NODE_ENV)
 
 const router = new VueRouter({
     mode: 'history',
-    base:
-        getAbsolutePath() +
-        `${process.env.NODE_ENV === 'development' ? 'home' : ''}`,
+    base: getAbsolutePath() + `${process.env.NODE_ENV === 'development' ? 'home' : ''}`,
     routes,
 })
 

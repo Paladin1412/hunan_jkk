@@ -669,20 +669,12 @@ export const AREA_ITEMS = [
                 label: '呼伦贝尔市',
             },
             {
-                children: [
-                    { value: '150303', label: '海南区' },
-                    { value: '150302', label: '海勃湾区' },
-                    { value: '150304', label: '乌达区' },
-                ],
+                children: [{ value: '150303', label: '海南区' }, { value: '150302', label: '海勃湾区' }, { value: '150304', label: '乌达区' }],
                 value: '150300',
                 label: '乌海市',
             },
             {
-                children: [
-                    { value: '152921', label: '阿拉善左旗' },
-                    { value: '152923', label: '额济纳旗' },
-                    { value: '152922', label: '阿拉善右旗' },
-                ],
+                children: [{ value: '152921', label: '阿拉善左旗' }, { value: '152923', label: '额济纳旗' }, { value: '152922', label: '阿拉善右旗' }],
                 value: '152900',
                 label: '阿拉善盟',
             },
@@ -956,12 +948,7 @@ export const AREA_ITEMS = [
                 label: '白山市',
             },
             {
-                children: [
-                    { value: '220421', label: '东丰县' },
-                    { value: '220422', label: '东辽县' },
-                    { value: '220402', label: '龙山区' },
-                    { value: '220403', label: '西安区' },
-                ],
+                children: [{ value: '220421', label: '东丰县' }, { value: '220422', label: '东辽县' }, { value: '220402', label: '龙山区' }, { value: '220403', label: '西安区' }],
                 value: '220400',
                 label: '辽源市',
             },
@@ -1071,11 +1058,7 @@ export const AREA_ITEMS = [
                 label: '齐齐哈尔市',
             },
             {
-                children: [
-                    { value: '232721', label: '呼玛县' },
-                    { value: '232722', label: '塔河县' },
-                    { value: '232723', label: '漠河县' },
-                ],
+                children: [{ value: '232721', label: '呼玛县' }, { value: '232722', label: '塔河县' }, { value: '232723', label: '漠河县' }],
                 value: '232700',
                 label: '大兴安岭地区',
             },
@@ -1604,12 +1587,7 @@ export const AREA_ITEMS = [
                 label: '衢州市',
             },
             {
-                children: [
-                    { value: '330922', label: '嵊泗县' },
-                    { value: '330921', label: '岱山县' },
-                    { value: '330903', label: '普陀区' },
-                    { value: '330902', label: '定海区' },
-                ],
+                children: [{ value: '330922', label: '嵊泗县' }, { value: '330921', label: '岱山县' }, { value: '330903', label: '普陀区' }, { value: '330902', label: '定海区' }],
                 value: '330900',
                 label: '舟山市',
             },
@@ -1644,12 +1622,7 @@ export const AREA_ITEMS = [
                 label: '蚌埠市',
             },
             {
-                children: [
-                    { value: '341602', label: '谯城区' },
-                    { value: '341621', label: '涡阳县' },
-                    { value: '341622', label: '蒙城县' },
-                    { value: '341623', label: '利辛县' },
-                ],
+                children: [{ value: '341602', label: '谯城区' }, { value: '341621', label: '涡阳县' }, { value: '341622', label: '蒙城县' }, { value: '341623', label: '利辛县' }],
                 value: '341600',
                 label: '亳州市',
             },
@@ -1670,12 +1643,7 @@ export const AREA_ITEMS = [
                 label: '安庆市',
             },
             {
-                children: [
-                    { value: '340722', label: '枞阳县' },
-                    { value: '340705', label: '铜官区' },
-                    { value: '340706', label: '义安区' },
-                    { value: '340711', label: '郊区' },
-                ],
+                children: [{ value: '340722', label: '枞阳县' }, { value: '340705', label: '铜官区' }, { value: '340706', label: '义安区' }, { value: '340711', label: '郊区' }],
                 value: '340700',
                 label: '铜陵市',
             },
@@ -1721,12 +1689,7 @@ export const AREA_ITEMS = [
                 label: '宣城市',
             },
             {
-                children: [
-                    { value: '340604', label: '烈山区' },
-                    { value: '340621', label: '濉溪县' },
-                    { value: '340603', label: '相山区' },
-                    { value: '340602', label: '杜集区' },
-                ],
+                children: [{ value: '340604', label: '烈山区' }, { value: '340621', label: '濉溪县' }, { value: '340603', label: '相山区' }, { value: '340602', label: '杜集区' }],
                 value: '340600',
                 label: '淮北市',
             },
@@ -1809,12 +1772,7 @@ export const AREA_ITEMS = [
                 label: '宿州市',
             },
             {
-                children: [
-                    { value: '341721', label: '东至县' },
-                    { value: '341702', label: '贵池区' },
-                    { value: '341723', label: '青阳县' },
-                    { value: '341722', label: '石台县' },
-                ],
+                children: [{ value: '341721', label: '东至县' }, { value: '341702', label: '贵池区' }, { value: '341723', label: '青阳县' }, { value: '341722', label: '石台县' }],
                 value: '341700',
                 label: '池州市',
             },
@@ -1994,12 +1952,7 @@ export const AREA_ITEMS = [
                 label: '萍乡市',
             },
             {
-                children: [
-                    { value: '360203', label: '珠山区' },
-                    { value: '360202', label: '昌江区' },
-                    { value: '360281', label: '乐平市' },
-                    { value: '360222', label: '浮梁县' },
-                ],
+                children: [{ value: '360203', label: '珠山区' }, { value: '360202', label: '昌江区' }, { value: '360281', label: '乐平市' }, { value: '360222', label: '浮梁县' }],
                 value: '360200',
                 label: '景德镇市',
             },
@@ -2054,10 +2007,7 @@ export const AREA_ITEMS = [
                 label: '南昌市',
             },
             {
-                children: [
-                    { value: '360521', label: '分宜县' },
-                    { value: '360502', label: '渝水区' },
-                ],
+                children: [{ value: '360521', label: '分宜县' }, { value: '360502', label: '渝水区' }],
                 value: '360500',
                 label: '新余市',
             },
@@ -2124,11 +2074,7 @@ export const AREA_ITEMS = [
                 label: '赣州市',
             },
             {
-                children: [
-                    { value: '360602', label: '月湖区' },
-                    { value: '360681', label: '贵溪市' },
-                    { value: '360622', label: '余江县' },
-                ],
+                children: [{ value: '360602', label: '月湖区' }, { value: '360681', label: '贵溪市' }, { value: '360622', label: '余江县' }],
                 value: '360600',
                 label: '鹰潭市',
             },
@@ -2200,12 +2146,7 @@ export const AREA_ITEMS = [
                 label: '淄博市',
             },
             {
-                children: [
-                    { value: '371121', label: '五莲县' },
-                    { value: '371122', label: '莒县' },
-                    { value: '371102', label: '东港区' },
-                    { value: '371103', label: '岚山区' },
-                ],
+                children: [{ value: '371121', label: '五莲县' }, { value: '371122', label: '莒县' }, { value: '371102', label: '东港区' }, { value: '371103', label: '岚山区' }],
                 value: '371100',
                 label: '日照市',
             },
@@ -2269,12 +2210,7 @@ export const AREA_ITEMS = [
                 label: '枣庄市',
             },
             {
-                children: [
-                    { value: '371083', label: '乳山市' },
-                    { value: '371003', label: '文登区' },
-                    { value: '371002', label: '环翠区' },
-                    { value: '371082', label: '荣成市' },
-                ],
+                children: [{ value: '371083', label: '乳山市' }, { value: '371003', label: '文登区' }, { value: '371002', label: '环翠区' }, { value: '371082', label: '荣成市' }],
                 value: '371000',
                 label: '威海市',
             },
@@ -2368,10 +2304,7 @@ export const AREA_ITEMS = [
                 label: '青岛市',
             },
             {
-                children: [
-                    { value: '371203', label: '钢城区' },
-                    { value: '371202', label: '莱城区' },
-                ],
+                children: [{ value: '371203', label: '钢城区' }, { value: '371202', label: '莱城区' }],
                 value: '371200',
                 label: '莱芜市',
             },
@@ -2729,11 +2662,7 @@ export const AREA_ITEMS = [
                 label: '黄冈市',
             },
             {
-                children: [
-                    { value: '420704', label: '鄂城区' },
-                    { value: '420703', label: '华容区' },
-                    { value: '420702', label: '梁子湖区' },
-                ],
+                children: [{ value: '420704', label: '鄂城区' }, { value: '420703', label: '华容区' }, { value: '420702', label: '梁子湖区' }],
                 value: '420700',
                 label: '鄂州市',
             },
@@ -2860,11 +2789,7 @@ export const AREA_ITEMS = [
                 label: '仙桃市',
             },
             {
-                children: [
-                    { value: '421321', label: '随县' },
-                    { value: '421381', label: '广水市' },
-                    { value: '421303', label: '曾都区' },
-                ],
+                children: [{ value: '421321', label: '随县' }, { value: '421381', label: '广水市' }, { value: '421303', label: '曾都区' }],
                 value: '421300',
                 label: '随州市',
             },
@@ -3289,11 +3214,7 @@ export const AREA_ITEMS = [
                 label: '梅州市',
             },
             {
-                children: [
-                    { value: '440402', label: '香洲区' },
-                    { value: '440403', label: '斗门区' },
-                    { value: '440404', label: '金湾区' },
-                ],
+                children: [{ value: '440402', label: '香洲区' }, { value: '440403', label: '斗门区' }, { value: '440404', label: '金湾区' }],
                 value: '440400',
                 label: '珠海市',
             },
@@ -3348,12 +3269,7 @@ export const AREA_ITEMS = [
                 label: '茂名市',
             },
             {
-                children: [
-                    { value: '441581', label: '陆丰市' },
-                    { value: '441502', label: '城区' },
-                    { value: '441523', label: '陆河县' },
-                    { value: '441521', label: '海丰县' },
-                ],
+                children: [{ value: '441581', label: '陆丰市' }, { value: '441502', label: '城区' }, { value: '441523', label: '陆河县' }, { value: '441521', label: '海丰县' }],
                 value: '441500',
                 label: '汕尾市',
             },
@@ -3423,11 +3339,7 @@ export const AREA_ITEMS = [
                 label: '东莞市',
             },
             {
-                children: [
-                    { value: '445102', label: '湘桥区' },
-                    { value: '445103', label: '潮安区' },
-                    { value: '445122', label: '饶平县' },
-                ],
+                children: [{ value: '445102', label: '湘桥区' }, { value: '445103', label: '潮安区' }, { value: '445122', label: '饶平县' }],
                 value: '445100',
                 label: '潮州市',
             },
@@ -3487,12 +3399,7 @@ export const AREA_ITEMS = [
                 label: '韶关市',
             },
             {
-                children: [
-                    { value: '441702', label: '江城区' },
-                    { value: '441781', label: '阳春市' },
-                    { value: '441721', label: '阳西县' },
-                    { value: '441704', label: '阳东区' },
-                ],
+                children: [{ value: '441702', label: '江城区' }, { value: '441781', label: '阳春市' }, { value: '441721', label: '阳西县' }, { value: '441704', label: '阳东区' }],
                 value: '441700',
                 label: '阳江市',
             },
@@ -3604,12 +3511,7 @@ export const AREA_ITEMS = [
                 label: '玉林市',
             },
             {
-                children: [
-                    { value: '450702', label: '钦南区' },
-                    { value: '450703', label: '钦北区' },
-                    { value: '450722', label: '浦北县' },
-                    { value: '450721', label: '灵山县' },
-                ],
+                children: [{ value: '450702', label: '钦南区' }, { value: '450703', label: '钦北区' }, { value: '450722', label: '浦北县' }, { value: '450721', label: '灵山县' }],
                 value: '450700',
                 label: '钦州市',
             },
@@ -3637,12 +3539,7 @@ export const AREA_ITEMS = [
                 label: '桂林市',
             },
             {
-                children: [
-                    { value: '450681', label: '东兴市' },
-                    { value: '450603', label: '防城区' },
-                    { value: '450602', label: '港口区' },
-                    { value: '450621', label: '上思县' },
-                ],
+                children: [{ value: '450681', label: '东兴市' }, { value: '450603', label: '防城区' }, { value: '450602', label: '港口区' }, { value: '450621', label: '上思县' }],
                 value: '450600',
                 label: '防城港市',
             },
@@ -3819,11 +3716,7 @@ export const AREA_ITEMS = [
                 label: '乐东黎族自治县',
             },
             {
-                children: [
-                    { value: '460321', label: '西沙群岛' },
-                    { value: '460323', label: '中沙群岛的岛礁及其海域' },
-                    { value: '460322', label: '南沙群岛' },
-                ],
+                children: [{ value: '460321', label: '西沙群岛' }, { value: '460323', label: '中沙群岛的岛礁及其海域' }, { value: '460322', label: '南沙群岛' }],
                 value: '460300',
                 label: '三沙市',
             },
@@ -3996,12 +3889,7 @@ export const AREA_ITEMS = [
                 label: '保亭黎族苗族自治县',
             },
             {
-                children: [
-                    { value: '460105', label: '秀英区' },
-                    { value: '460107', label: '琼山区' },
-                    { value: '460106', label: '龙华区' },
-                    { value: '460108', label: '美兰区' },
-                ],
+                children: [{ value: '460105', label: '秀英区' }, { value: '460107', label: '琼山区' }, { value: '460106', label: '龙华区' }, { value: '460108', label: '美兰区' }],
                 value: '460100',
                 label: '海口市',
             },
@@ -4050,12 +3938,7 @@ export const AREA_ITEMS = [
                 label: '琼中黎族苗族自治县',
             },
             {
-                children: [
-                    { value: '460204', label: '天涯区' },
-                    { value: '460205', label: '崖州区' },
-                    { value: '460202', label: '海棠区' },
-                    { value: '460203', label: '吉阳区' },
-                ],
+                children: [{ value: '460204', label: '天涯区' }, { value: '460205', label: '崖州区' }, { value: '460202', label: '海棠区' }, { value: '460203', label: '吉阳区' }],
                 value: '460200',
                 label: '三亚市',
             },
@@ -4889,11 +4772,7 @@ export const AREA_ITEMS = [
                 label: '广安市',
             },
             {
-                children: [
-                    { value: '512021', label: '安岳县' },
-                    { value: '512022', label: '乐至县' },
-                    { value: '512002', label: '雁江区' },
-                ],
+                children: [{ value: '512021', label: '安岳县' }, { value: '512022', label: '乐至县' }, { value: '512002', label: '雁江区' }],
                 value: '512000',
                 label: '资阳市',
             },
@@ -5012,12 +4891,7 @@ export const AREA_ITEMS = [
                 label: '黔东南苗族侗族自治州',
             },
             {
-                children: [
-                    { value: '520201', label: '钟山区' },
-                    { value: '520222', label: '盘县' },
-                    { value: '520203', label: '六枝特区' },
-                    { value: '520221', label: '水城县' },
-                ],
+                children: [{ value: '520201', label: '钟山区' }, { value: '520222', label: '盘县' }, { value: '520203', label: '六枝特区' }, { value: '520221', label: '水城县' }],
                 value: '520200',
                 label: '六盘水市',
             },
@@ -5176,11 +5050,7 @@ export const AREA_ITEMS = [
                 label: '临沧市',
             },
             {
-                children: [
-                    { value: '532822', label: '勐海县' },
-                    { value: '532823', label: '勐腊县' },
-                    { value: '532801', label: '景洪市' },
-                ],
+                children: [{ value: '532822', label: '勐海县' }, { value: '532823', label: '勐腊县' }, { value: '532801', label: '景洪市' }],
                 value: '532800',
                 label: '西双版纳傣族自治州',
             },
@@ -5274,11 +5144,7 @@ export const AREA_ITEMS = [
                 label: '保山市',
             },
             {
-                children: [
-                    { value: '533423', label: '维西傈僳族自治县' },
-                    { value: '533401', label: '香格里拉市' },
-                    { value: '533422', label: '德钦县' },
-                ],
+                children: [{ value: '533423', label: '维西傈僳族自治县' }, { value: '533401', label: '香格里拉市' }, { value: '533422', label: '德钦县' }],
                 value: '533400',
                 label: '迪庆藏族自治州',
             },
@@ -5512,12 +5378,7 @@ export const AREA_ITEMS = [
                 label: '商洛市',
             },
             {
-                children: [
-                    { value: '610204', label: '耀州区' },
-                    { value: '610203', label: '印台区' },
-                    { value: '610202', label: '王益区' },
-                    { value: '610222', label: '宜君县' },
-                ],
+                children: [{ value: '610204', label: '耀州区' }, { value: '610203', label: '印台区' }, { value: '610202', label: '王益区' }, { value: '610222', label: '宜君县' }],
                 value: '610200',
                 label: '铜川市',
             },
@@ -5654,10 +5515,7 @@ export const AREA_ITEMS = [
                 label: '庆阳市',
             },
             {
-                children: [
-                    { value: '620321', label: '永昌县' },
-                    { value: '620302', label: '金川区' },
-                ],
+                children: [{ value: '620321', label: '永昌县' }, { value: '620302', label: '金川区' }],
                 value: '620300',
                 label: '金昌市',
             },
@@ -5900,11 +5758,7 @@ export const AREA_ITEMS = [
                 label: '银川市',
             },
             {
-                children: [
-                    { value: '640202', label: '大武口区' },
-                    { value: '640221', label: '平罗县' },
-                    { value: '640205', label: '惠农区' },
-                ],
+                children: [{ value: '640202', label: '大武口区' }, { value: '640221', label: '平罗县' }, { value: '640205', label: '惠农区' }],
                 value: '640200',
                 label: '石嘴山市',
             },
@@ -5931,11 +5785,7 @@ export const AREA_ITEMS = [
                 label: '固原市',
             },
             {
-                children: [
-                    { value: '640522', label: '海原县' },
-                    { value: '640521', label: '中宁县' },
-                    { value: '640502', label: '沙坡头区' },
-                ],
+                children: [{ value: '640522', label: '海原县' }, { value: '640521', label: '中宁县' }, { value: '640502', label: '沙坡头区' }],
                 value: '640500',
                 label: '中卫市',
             },
@@ -6017,11 +5867,7 @@ export const AREA_ITEMS = [
                 label: '博尔塔拉蒙古自治州',
             },
             {
-                children: [
-                    { value: '650422', label: '托克逊县' },
-                    { value: '650421', label: '鄯善县' },
-                    { value: '650402', label: '高昌区' },
-                ],
+                children: [{ value: '650422', label: '托克逊县' }, { value: '650421', label: '鄯善县' }, { value: '650402', label: '高昌区' }],
                 value: '650400',
                 label: '吐鲁番市',
             },
@@ -6135,10 +5981,7 @@ export const AREA_ITEMS = [
                 label: '和田地区',
             },
             {
-                children: [
-                    { value: '6590061', label: '博古其镇' },
-                    { value: '659006101', label: '双丰镇' },
-                ],
+                children: [{ value: '6590061', label: '博古其镇' }, { value: '659006101', label: '双丰镇' }],
                 value: '659006',
                 label: '铁门关市',
             },
@@ -6182,11 +6025,7 @@ export const AREA_ITEMS = [
                 label: '阿克苏地区',
             },
             {
-                children: [
-                    { value: '650522', label: '伊吾县' },
-                    { value: '650521', label: '巴里坤哈萨克自治县' },
-                    { value: '650502', label: '伊州区' },
-                ],
+                children: [{ value: '650522', label: '伊吾县' }, { value: '650521', label: '巴里坤哈萨克自治县' }, { value: '650502', label: '伊州区' }],
                 value: '650500',
                 label: '哈密市',
             },

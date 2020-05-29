@@ -18,6 +18,7 @@ module.exports = {
             },
         ],
         'vue/prop-name-casing': ['off', 'camelCase' | 'snake_case'],
+        'comma-dangle': ['error', 'only-multiline'],
     },
 
     parserOptions: {
