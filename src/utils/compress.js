@@ -11,9 +11,7 @@ const config = {
  * @returns {string} 如8.1M, 100kb
  */
 function getFileSizeDesc(fileSize) {
-    return fileSize / 1024 > 1024
-        ? ~~((10 * fileSize) / 1024 / 1024) / 10 + 'MB'
-        : ~~(fileSize / 1024) + 'kb'
+    return fileSize / 1024 > 1024 ? ~~((10 * fileSize) / 1024 / 1024) / 10 + 'MB' : ~~(fileSize / 1024) + 'kb'
 }
 
 function compress(objImg) {
@@ -63,25 +61,9 @@ function compress(objImg) {
 
         for (let i = 0; i < count; i++) {
             for (let j = 0; j < count; j++) {
-                tileCtx.drawImage(
-                    objImg,
-                    i * tileWidth * ratio,
-                    j * tileHeight * ratio,
-                    tileWidth * ratio,
-                    tileHeight * ratio,
-                    0,
-                    0,
-                    tileWidth,
-                    tileHeight
-                )
+                tileCtx.drawImage(objImg, i * tileWidth * ratio, j * tileHeight * ratio, tileWidth * ratio, tileHeight * ratio, 0, 0, tileWidth, tileHeight)
 
-                ctx.drawImage(
-                    tileCanvas,
-                    i * tileWidth,
-                    j * tileHeight,
-                    tileWidth,
-                    tileHeight
-                )
+                ctx.drawImage(tileCanvas, i * tileWidth, j * tileHeight, tileWidth, tileHeight)
             }
         }
     } else {
@@ -94,11 +76,7 @@ function compress(objImg) {
     if (isDebug !== 0) {
         console.log('压缩前base64数据长度：' + getFileSizeDesc(initSize))
         console.log('压缩后base64数据长度：' + getFileSizeDesc(nData.length))
-        console.log(
-            'base64数据压缩率：' +
-                ~~((100 * (initSize - nData.length)) / initSize) +
-                '%'
-        )
+        console.log('base64数据压缩率：' + ~~((100 * (initSize - nData.length)) / initSize) + '%')
     }
 
     tileCanvas.width = tileCanvas.height = canvas.width = canvas.height = 0
@@ -112,9 +90,7 @@ function getBlob(buffer, format) {
     try {
         blob = new window.Blob(buffer, { type: format })
     } catch (e) {
-        const blobBuilder = new (window.BlobBuilder ||
-            window.WebKitBlobBuilder ||
-            window.MSBlobBuilder)()
+        const blobBuilder = new (window.BlobBuilder || window.WebKitBlobBuilder || window.MSBlobBuilder)()
         buffer.forEach(function(buf) {
             blobBuilder.append(buf)
         })
@@ -149,10 +125,7 @@ export function compressImage(file) {
         const { maxSize } = config
 
         const reader = new window.FileReader()
-        const fileSize =
-            file.size / 1024 > 1024
-                ? ~~((10 * file.size) / 1024 / 1024) / 10 + 'MB'
-                : ~~(file.size / 1024) + 'kb'
+        const fileSize = file.size / 1024 > 1024 ? ~~((10 * file.size) / 1024 / 1024) / 10 + 'MB' : ~~(file.size / 1024) + 'kb'
         if (isDebug !== 0) {
             console.log(`原始Blob对象大小：${fileSize}`)
         }

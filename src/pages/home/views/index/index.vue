@@ -124,6 +124,7 @@
 </template>
 
 <script>
+/* eslint-disable prettier/prettier */
 import relationToast from '../../components/relationToast'
 
 import dayjs from 'dayjs'
@@ -131,7 +132,7 @@ import Swiper from 'swiper'
 import QRCode from 'qrcode'
 import {
     getUserIcon,
-    TH_OPEN_URL,
+    // TH_OPEN_URL,
     RELATION_OBJ,
     KEPU_MENU,
     CUSTOMER_MENU,
@@ -174,6 +175,8 @@ export default {
             LOGO,
             RELATION_OBJ,
             isGuideShow,
+
+            wechatCode: '',
             visitNum: '',
 
             activeIndex: 0,
@@ -183,6 +186,7 @@ export default {
             cards: [],
 
             moduleConfig: {},
+            famliyListDict: {},
 
             recomendMenu: RECOMOND_MENU,
             coustomerMenu: CUSTOMER_MENU,
@@ -195,25 +199,20 @@ export default {
     async beforeCreate() {
         const pathName = process.env.NODE_ENV === 'production' ? `${location.pathname || ''}` : ''
 
-        const { status, data } = await this.$axios.get(`${pathName}moduleConfig.json`)
+        const { status, data } = await this.$axios.get(`${pathName}moduleConfig.json?t=${dayjs().unix()}`)
 
         console.log('moduleConfig', status, data)
         if (status === 200 && data) {
-            this.moduleConfig = Object.values(data || [])
+            this.moduleConfig = Object.values(data || {})
         }
     },
     async mounted() {
-        const wechatCode = this.$route.query.wechatCode || localStorage.wechatCode
+        this.wechatCode = this.$route.query.wechatCode || localStorage.wechatCode
 
-        if (!wechatCode) {
+        if (!this.wechatCode) {
             location.href = `https://health.tengmed.com/open/getUserCode?appId=${APP_ID}&hospitalId=${HOSPITAL_ID}&redirect_uri=${encodeURIComponent(location.href)}`
             return
         }
-
-        if (!localStorage.wechatCode) {
-            this.$axios.post(`${TH_OPEN_URL}/queryFamilyRelationByWechatCode`, { wechatCode })
-        }
-        localStorage.wechatCode = wechatCode
 
         if (process.env.NODE_ENV !== 'production') {
             this.cards = CARD_LIST_MOCK
@@ -228,6 +227,7 @@ export default {
             this.initSwiper()
             if (process.env.NODE_ENV === 'production' && !(await this.initCardList())) return
 
+            this.getFamilyRelation()
             this.initQrcode()
             this.getNum()
 
@@ -252,6 +252,32 @@ export default {
                 })
             } catch (error) {
                 console.log('clickStat error: ', error)
+            }
+        },
+        async getFamilyRelation() {
+            if (!localStorage.wechatCode) {
+                const url = `${YLJL_URL}/httpapi/services.ashx?ACTION=queryFamilyRelationByWechatCode&WechatCode=${this.wechatCode}&openId=${localStorage.reqOpenId}`
+                try {
+                    const { data, errno, message } = (await this.$axios.jsonp(url, 'queryFamilyRelationCallback')) || {}
+
+                    if (errno === 0 && data && data.familyRelationList) {
+                        this.famliyListDict = R.pipe(
+                            list => R.filter(item => !!item.healthCardId, list),
+                            list => R.indexBy(R.prop('healthCardId'), list),
+                        )(data.familyRelationList || [])
+
+                        this.cards = this.cards.map(item => ({ ...item, relation: item.relation || (this.famliyListDict[item.healthCardId] || {}).relation || '' }))
+
+                        this.cards = R.sortBy(R.prop('relation'))(this.cards)
+                        const key = R.findLastIndex(R.propEq('relation', ''))(this.cards)
+
+                        this.cards = [...this.cards.slice(key + 1), ...this.cards.slice(0, key + 1)]
+                    }
+                    localStorage.wechatCode = this.wechatCode
+                    console.log('queryFamilyRelationByWechatCode: ', data, errno, message, this.cards)
+                } catch (error) {
+                    console.log('queryFamilyRelationByWechatCode error: ', error)
+                }
             }
         },
         containerClick() {
@@ -285,6 +311,9 @@ export default {
             const openId = JSON.parse(payload).openid
 
             console.log('openId', openId)
+
+            localStorage.reqOpenId = openId
+            localStorage.reqToken = token
 
             try {
                 const res = (await this.$axios.get(`${BASE_URL}/jkk/Handler.ashx?action=list&Openid=${openId}`)) || {}
@@ -455,6 +484,8 @@ export default {
                 .replace('sfz=', `sfz=${card.idCard}`)
                 .replace('ecardNo=', `ecardNo=${card.healthCardId}`)
                 .replace('healthCardId=', `healthCardId=${card.healthCardId}`)
+                .replace('reqOpenId=', `reqOpenId=${localStorage.reqOpenId}`)
+                .replace('reqToken=', `reqToken=${localStorage.reqToken}`)
         },
 
         async itemClickWithMoudleId(e, item) {
@@ -484,7 +515,7 @@ export default {
             this.cards = cardsList
         },
         toRelationManager() {
-            location.href = `${TECENT_URL}/h5/report/memberManage?cityCode=430000&hospitalId=${HOSPITAL_ID}`
+            location.href = `${TECENT_URL}/h5/report/memberManage?cityCode=430000&hospitalId=${HOSPITAL_ID}&reqOpenId=${localStorage.reqOpenId}&reqToken=${localStorage.reqToken}&adtag=lianxu`
         },
     },
 }
@@ -528,6 +559,7 @@ export default {
     position: relative;
     background: #f8f8f8;
     padding-bottom: 30px;
+    min-height: 100%;
 
     header {
         position: relative;

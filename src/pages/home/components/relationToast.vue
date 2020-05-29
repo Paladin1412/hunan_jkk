@@ -11,35 +11,20 @@
             </div>
 
             <div class="member-list">
-                <div
-                    class="member-item"
-                    v-for="(item, index) in cardsList"
-                    :key="index"
-                >
+                <div class="member-item" v-for="(item, index) in cardsList" :key="index">
                     <div class="member-item-top">
                         <div class="member-info">
-                            <span class="member-info-name">{{
-                                item.name
-                            }}</span>
+                            <span class="member-info-name">{{ item.name }}</span>
                             <span>{{ item.age }}岁</span>
                         </div>
-                        <div
-                            class="set-manager"
-                            @click="managerChoose(item, index)"
-                        >
+                        <div class="set-manager" @click="managerChoose(item, index)">
                             <span class="unqualified" v-if="item.unqualified">
                                 不符合要求
                             </span>
                             <div v-else class="manager-choose">
-                                <img
-                                    v-if="managerIndex === index"
-                                    :src="RIGHT_ICON"
-                                    alt=""
-                                />
+                                <img v-if="managerIndex === index" :src="RIGHT_ICON" alt="" />
                                 <span v-else class="manager-no-choose"></span>
-                                <span class="manager-choose-tips"
-                                    >设为管理人</span
-                                >
+                                <span class="manager-choose-tips">设为管理人</span>
                             </div>
                         </div>
                     </div>
@@ -47,13 +32,8 @@
                     <div class="choose-list">
                         <div
                             class="choose-list-item"
-                            :class="
-                                item.relation === relationItem.value
-                                    ? 'relation-active'
-                                    : ''
-                            "
-                            v-for="(relationItem,
-                            relationIndex) in RELATION_ITEMS"
+                            :class="item.relation === relationItem.value ? 'relation-active' : ''"
+                            v-for="(relationItem, relationIndex) in RELATION_ITEMS"
                             :key="relationIndex"
                             @click="relationChoose(item, index, relationItem)"
                         >
@@ -70,16 +50,11 @@
 
 <script>
 // import dayjs from 'dayjs'
-import {
-    RELATION_ICONS,
-    RELATION_ITEMS,
-    RELATION_OBJ,
-} from '@/utils/globalConst'
+import { RELATION_ICONS, RELATION_ITEMS, RELATION_OBJ } from '@/utils/globalConst'
 
 const R = require('ramda')
 
-const RIGHT_ICON =
-    'https://static.wecity.qq.com/lego_next_resources/right-bold-4cacb324bf3b22fa33e8b3c44dca570b.png'
+const RIGHT_ICON = 'https://static.wecity.qq.com/lego_next_resources/right-bold-4cacb324bf3b22fa33e8b3c44dca570b.png'
 
 export default {
     mixins: [],
@@ -129,13 +104,8 @@ export default {
         },
         relationChoose(item, index, relationItem) {
             console.log('relationChoose', item, index, relationItem)
-            if (
-                R.contains(relationItem.value, ['0', '3']) &&
-                R.find(R.propEq('relation', relationItem.value))(this.cardsList)
-            ) {
-                this.$weui.topTips(
-                    `您已有家庭成员为${RELATION_OBJ[relationItem.value]}关系`
-                )
+            if (R.contains(relationItem.value, ['0', '3']) && R.find(R.propEq('relation', relationItem.value))(this.cardsList)) {
+                this.$weui.topTips(`您已有家庭成员为${RELATION_OBJ[relationItem.value]}关系`)
                 return
             }
 

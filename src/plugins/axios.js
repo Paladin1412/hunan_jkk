@@ -48,22 +48,23 @@ _axios.interceptors.response.use(
 Plugin.install = function(Vue) {
     _axios.$get = _axios.get
     _axios.$post = _axios.post
-    _axios.jsonp = url => {
+    _axios.jsonp = (url, callback = 'jsonCallBack') => {
         if (!url) {
             console.error('Axios.JSONP 至少需要一个url参数!')
             return
         }
         return new Promise(resolve => {
-            window.jsonCallBack = result => {
+            window[callback] = result => {
                 resolve(result)
             }
             var JSONP = document.createElement('script')
             JSONP.type = 'text/javascript'
-            JSONP.src = `${url}&callback=jsonCallBack`
+            JSONP.src = `${url}&callback=${callback}`
             document.getElementsByTagName('head')[0].appendChild(JSONP)
             setTimeout(() => {
                 document.getElementsByTagName('head')[0].removeChild(JSONP)
-            }, 500)
+                window[callback] = null
+            }, 5000)
         })
     }
 

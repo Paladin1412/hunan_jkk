@@ -3,10 +3,7 @@
         <error-page v-if="error" :error="error"></error-page>
         <template v-else-if="isAppReady">
             <keep-alive>
-                <router-view
-                    v-if="$route.meta.keepAlive"
-                    class="default-page"
-                />
+                <router-view v-if="$route.meta.keepAlive" class="default-page" />
             </keep-alive>
             <router-view v-if="!$route.meta.keepAlive" class="default-page" />
         </template>

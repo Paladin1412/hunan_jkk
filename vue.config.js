@@ -52,10 +52,7 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                styles: path.resolve(
-                    path.join(__dirname, 'wap'),
-                    'src/assets/styles'
-                ),
+                styles: path.resolve(path.join(__dirname, 'wap'), 'src/assets/styles'),
             },
         },
         externals,
@@ -89,9 +86,7 @@ module.exports = {
                 bypass: function(req) {
                     const accept = req.headers.accept
                     if (accept && accept.indexOf('html') !== -1) {
-                        const result = req.path.match(
-                            /\/hunan\/([a-zA-Z_\-0-9]+)/
-                        )
+                        const result = req.path.match(/\/hunan\/([a-zA-Z_\-0-9]+)/)
                         if (result) {
                             return `/${result[1]}.html`
                         }

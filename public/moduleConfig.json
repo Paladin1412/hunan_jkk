@@ -1,15 +1,14 @@
 {
     "recommondMenu": {
         "type": "iconTop",
-        "data":  [
+        "data": [
             {
                 "label": "预约挂号",
                 "url": "https://h5-health.tengmed.com/open/cardpack/non-center-mode?appId=wx5c5ee20cde3b70e7&ecardNo=",
                 "key": "1000",
                 "isrpc": 0,
                 "scene": "010101",
-                "icon":
-                    "https://yiliao-1254237151.cos.ap-shanghai.myqcloud.com/wxa/cardNew/recmmond/recmmond-icon1.png"
+                "icon": "https://yiliao-1254237151.cos.ap-shanghai.myqcloud.com/wxa/cardNew/recmmond/recmmond-icon1.png"
             },
             {
                 "label": "检验报告",
@@ -17,8 +16,7 @@
                 "key": "2000",
                 "isrpc": 1,
                 "scene": "0101022",
-                "icon":
-                    "https://static.wecity.qq.com/lego_next_resources/check-c0b05d9a0bc7b9d8cead3c3af0f36008.png"
+                "icon": "https://static.wecity.qq.com/lego_next_resources/check-c0b05d9a0bc7b9d8cead3c3af0f36008.png"
             },
             {
                 "label": "就诊记录",
@@ -26,16 +24,14 @@
                 "key": "2001",
                 "isrpc": 1,
                 "scene": "010108",
-                "icon":
-                    "https://static.wecity.qq.com/lego_next_resources/hospital-ee9205fc25eb4f0143ff3275eba343c0.png"
+                "icon": "https://static.wecity.qq.com/lego_next_resources/hospital-ee9205fc25eb4f0143ff3275eba343c0.png"
             },
             {
                 "label": "计划免疫",
                 "moudleId": "37",
                 "isrpc": 1,
                 "scene": "0201032",
-                "icon":
-                    "https://static.wecity.qq.com/lego_next_resources/疫苗服务-b584dda87e652d27059108c2dd5ea3ce.png"
+                "icon": "https://static.wecity.qq.com/lego_next_resources/疫苗服务-b584dda87e652d27059108c2dd5ea3ce.png"
             }
         ]
     },
@@ -50,8 +46,7 @@
                 "key": "2003",
                 "isrpc": 1,
                 "scene": "0201021",
-                "icon":
-                    "https://static.wecity.qq.com/lego_next_resources/preg-0b2cf56f05c6ff8ef10f7b46be4d945f.png"
+                "icon": "https://static.wecity.qq.com/lego_next_resources/preg-0b2cf56f05c6ff8ef10f7b46be4d945f.png"
             },
             {
                 "label": "健康档案",
@@ -60,8 +55,7 @@
                 "key": "2002",
                 "isrpc": 1,
                 "scene": "0201091",
-                "icon":
-                    "https://static.wecity.qq.com/lego_next_resources/record-a532b451e4ec77682405e2e961cad9a1.png"
+                "icon": "https://static.wecity.qq.com/lego_next_resources/record-a532b451e4ec77682405e2e961cad9a1.png"
             },
             {
                 "label": "生育服务手册",
@@ -70,18 +64,16 @@
                 "key": "2004",
                 "isrpc": 1,
                 "scene": "02010292",
-                "icon":
-                    "https://static.wecity.qq.com/lego_next_resources/children-8d6f0c73570fa7ea270fa31364b59a0c.png"
+                "icon": "https://static.wecity.qq.com/lego_next_resources/children-8d6f0c73570fa7ea270fa31364b59a0c.png"
             },
             {
                 "label": "出生医学证明",
                 "desc": "查询出生医学证明",
-                "url": "https://h5-health.tengmed.com/h5/report/certificate?cityCode=430100&hospitalId=30069&healthCardId=",
+                "url": "https://h5-health.tengmed.com/h5/report/certificate?cityCode=430100&hospitalId=30069&healthCardId=&reqOpenId=&reqToken=&adtag=lianxu",
                 "key": "2005",
                 "isrpc": 1,
                 "scene": "02010371",
-                "icon":
-                    "https://static.wecity.qq.com/lego_next_resources/birth-0cd94402ca9a9e93e50021d3b32cecf7.png"
+                "icon": "https://static.wecity.qq.com/lego_next_resources/birth-0cd94402ca9a9e93e50021d3b32cecf7.png"
             },
             {
                 "label": "计生奖励扶助",
@@ -90,8 +82,7 @@
                 "key": "2006",
                 "isrpc": 1,
                 "scene": "02010291",
-                "icon":
-                    "https://static.wecity.qq.com/lego_next_resources/reward-3f5093fa467eb4ed4bad5865895acd95.png"
+                "icon": "https://static.wecity.qq.com/lego_next_resources/reward-3f5093fa467eb4ed4bad5865895acd95.png"
             },
             {
                 "label": "跨省健康码",
@@ -100,8 +91,7 @@
                 "key": "2007",
                 "isrpc": 0,
                 "scene": "020101841",
-                "icon":
-                    "https://static.wecity.qq.com/lego_next_resources/code-cb61ecbf8365ca76b794e536e100c99a.png"
+                "icon": "https://static.wecity.qq.com/lego_next_resources/code-cb61ecbf8365ca76b794e536e100c99a.png"
             }
         ]
     },
@@ -113,15 +103,13 @@
                 "label": "BMI管理",
                 "moudleId": "35",
                 "scene": "0201011",
-                "icon":
-                    "https://static.wecity.qq.com/lego_next_resources/bmi-8914f519f89bad3de311d653372fbcf6.png"
+                "icon": "https://static.wecity.qq.com/lego_next_resources/bmi-8914f519f89bad3de311d653372fbcf6.png"
             },
             {
                 "label": "血压管理",
                 "url": "https://health.tengmed.com/h5/open/translateCardPackParamsToEcardNo?ecardNo=&hospitalId=30069&redirect_uri=https%3A%2F%2Fh5-health.tengmed.com%2Fh5%2Fblood%3Fcuid%3D1%26hospitalId%3D30069",
                 "scene": "0201013",
-                "icon":
-                    "https://static.wecity.qq.com/lego_next_resources/xueya-af2fca23646cfaa56af97dd271046d9b.png"
+                "icon": "https://static.wecity.qq.com/lego_next_resources/xueya-af2fca23646cfaa56af97dd271046d9b.png"
             }
         ]
     },

@@ -49,10 +49,7 @@ export default new Vuex.Store({
         },
     },
     actions: {
-        async baseGatewayReq(
-            ctx,
-            { isStore, service, func, req, commonIn = {} }
-        ) {
+        async baseGatewayReq(ctx, { isStore, service, func, req, commonIn = {} }) {
             let result = {}
             let res = {}
             let requestId = uuid()
@@ -123,19 +120,13 @@ export default new Vuex.Store({
             })
         },
         async getKgSet({ state, dispatch, commit }, { req, commonIn }) {
-            let hospitalIdIn =
-                req.hospitalId || commonIn.hospitalId || state.hospitalId || ''
-            if (
-                !hospitalIdIn ||
-                state.hospitalId !== state.pageQuery.hospitalId ||
-                state.hospitalId !== hospitalIdIn
-            ) {
+            let hospitalIdIn = req.hospitalId || commonIn.hospitalId || state.hospitalId || ''
+            if (!hospitalIdIn || state.hospitalId !== state.pageQuery.hospitalId || state.hospitalId !== hospitalIdIn) {
                 const { code, data = {} } = await dispatch('baseGatewayReq', {
                     service: 'ConfigServer',
                     func: 'getKGSet',
                     req: {
-                        hospitalId:
-                            +hospitalIdIn || +state.pageQuery.hospitalId || '',
+                        hospitalId: +hospitalIdIn || +state.pageQuery.hospitalId || '',
                     },
                 })
                 commit('SET_HOSPITALID', state.pageQuery.hospitalId)
